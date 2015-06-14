@@ -29,15 +29,15 @@ require 'ac/logger'
 
 get a logger instance, for example at top of your class, and log away:
 
-class A
-    Log = AC::Logger['/var/log/foo.log']
-    
-    def somefunc
-        Log.debug "bla bla bla.."
-    rescue => e
-        Log.ex(e, "just a demo, relax"
-    ensure 
-end
+    class A
+        Log = AC::Logger['/var/log/foo.log']
+        
+        def somefunc
+            Log.debug "bla bla bla.."
+        rescue => e
+            Log.ex(e, "just a demo, relax")
+        ensure
+    end
 
 ## Development
 
