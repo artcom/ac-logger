@@ -1,22 +1,20 @@
 require 'logger'
 require 'ac/logger/version'
 
-AC = Ac # dirty hack to make AC:: effectively identical to Ac::
-
-module Ac::Logger
+module AC::Logger
   def self.[](*args)
     Instance.new(*args)
   end
 
-  class Instance < ::Logger
+  Levels = {
+    "debug" => ::Logger::DEBUG,
+    "info"  => ::Logger::INFO,
+    "warn"  => ::Logger::WARN,
+    "error" => ::Logger::ERROR,
+    "fatal" => ::Logger::FATAL,
+  }
 
-    #Levels = {
-    #  "debug" => ::Logger::DEBUG,
-    #  "info"  => ::Logger::INFO,
-    #  "warn"  => ::Logger::WARN,
-    #  "error" => ::Logger::ERROR,
-    #  "fatal" => ::Logger::FATAL,
-    #}
+  class Instance < ::Logger
 
     # default output is STDOUT for rails test and non-rails apps, to a logfile
     # otherwise
@@ -57,7 +55,7 @@ module Ac::Logger
     #   Log.error "some message here"
     #   Log.debug "#{e.backtrace.join "\n\t"}"
     #
-    def ex e, msg = nil, level = :error
+    def ex(e, msg = nil, level = :error)
       __send__ level, "#{e}: #{msg}"
       debug "#{e} -> (callstack):\n\t#{e.backtrace.join "\n\t"}"
     end

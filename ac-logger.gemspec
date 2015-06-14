@@ -5,7 +5,7 @@ require 'ac/logger/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "ac-logger"
-  spec.version       = Ac::Logger::VERSION
+  spec.version       = AC::Logger::VERSION
   spec.authors       = ["dirk lüsebrink"]
   spec.email         = ["dirk.luesebrink@artcom.com"]
 

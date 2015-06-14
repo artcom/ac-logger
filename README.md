@@ -1,9 +1,9 @@
-# Ac::Logger
+# AC::Logger
 
-A small wrapper around the default ruby Logger class to contain a couple of conventions and conveniences I assembled over the years. Feature include:
- - logging exceptions messages together with their callstacks
- - easily parsable timestamps
- - easily log level marker 
+Small wrapper around the default ruby Logger class to contain a couple of conventions and conveniences assembled over the years including:
+ - exception logging together with their callstacks
+ - easily parsable timestamps 
+ - easily log level marker
 
 To experiment with that code, run `bin/console` for an interactive prompt.
 
